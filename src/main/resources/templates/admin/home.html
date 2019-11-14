@@ -1,9 +1,106 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
-    <title>Spring Security Example</title>
+    <title>Admin Panel</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{../css/materialize.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{../css/admin.css}"/>
+
+    <script th:src="@{../js/materialize.min.js}" defer></script>
+    <script th:src="@{../js/admin.js}" defer></script>
 </head>
+
 <body>
-<h1>Welcome to the admin page!</h1>
+<header class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <ul>
+                <li><a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a></li>
+                <li><a class="title" href="#!">Dashboard</a></li>
+            </ul>
+            <ul class="right">
+                <li><a href="#!"><i class="material-icons">apps</i></a></li>
+                <li><a href="#!"><i class="material-icons">settings</i></a></li>
+                <li><a href="#!"><i class="material-icons">help</i></a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<ul id="slide-out" class="sidenav sidenav-fixed">
+    <li>
+        <div class="user-view">
+            <div class="background"></div>
+            <img class="circle" th:src="@{../images/login.jpg}" alt="Admin image">
+            <span class="white-text name">John Doe</span>
+            <span class="white-text email">jdandturk@gmail.com</span>
+        </div>
+    </li>
+    <li class="active"><a th:href="@{/admin/home}"><i class="material-icons">dashboard</i>Dashboard</a></li>
+    <li><a th:href="@{/admin/customers}"><i class="material-icons">person</i>Customers</a></li>
+    <li><a th:href="@{/admin/products}"><i class="material-icons">local_offer</i>Products</a></li>
+    <li><a th:href="@{/admin/categories}"><i class="material-icons">view_list</i>Categories</a></li>
+    <li><a th:href="@{/admin/orders}"><i class="material-icons">receipt</i>Orders</a></li>
+    <li>
+        <div class="divider"></div>
+    </li>
+    <li><a th:href="@{/logout}"><i class="material-icons">lock</i>Logout</a></li>
+    <li><a href="#"><i class="material-icons">settings</i>Settings</a></li>
+    <li><a href="#"><i class="material-icons">help</i>Help & Feedback</a></li>
+</ul>
+<main class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col s12 m3">
+                <div class="card blue white-text">
+                    <div class="card-content valign-wrapper">
+                        <div class="card-text">
+                            <h6>25</h6>
+                            <p>Customers</p>
+                        </div>
+                        <div class="card-icon"><i class="material-icons medium valign">people</i></div>
+                    </div>
+                    <div class="card-action"><a th:href="@{/admin/customers}">View customers</a></div>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <div class="card blue white-text">
+                    <div class="card-content valign-wrapper">
+                        <div class="card-text">
+                            <h6>156</h6>
+                            <p>Products</p>
+                        </div>
+                        <div class="card-icon"><i class="material-icons medium valign">local_offer</i></div>
+                    </div>
+                    <div class="card-action"><a th:href="@{/admin/products}">View products</a></div>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <div class="card blue white-text">
+                    <div class="card-content valign-wrapper">
+                        <div class="card-text">
+                            <h6>7</h6>
+                            <p>Categories</p>
+                        </div>
+                        <div class="card-icon"><i class="material-icons medium valign">view_list</i></div>
+                    </div>
+                    <div class="card-action"><a th:href="@{/admin/categories}">View categories</a></div>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <div class="card blue white-text">
+                    <div class="card-content valign-wrapper">
+                        <div class="card-text">
+                            <h6>14</h6>
+                            <p>Orders</p>
+                        </div>
+                        <div class="card-icon"><i class="material-icons medium valign">receipt</i></div>
+                    </div>
+                    <div class="card-action"><a th:href="@{/admin/orders}">View orders</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 </body>
 </html>
