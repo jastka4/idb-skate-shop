@@ -34,7 +34,7 @@ public class UserServiceTest {
                 mockBCryptPasswordEncoder);
         user = new User();
         user.setId(1);
-        user.setName("Gustavo");
+        user.setFirstName("Gustavo");
         user.setLastName("Ponce");
         user.setEmail("test@test.com");
 

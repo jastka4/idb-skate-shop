@@ -19,7 +19,7 @@ public class User {
     private int id;
 
     @Column(name = "email")
-    @Email(message = "*Please provide a valid Email")
+    @Email(message = "*Please provide a valid email")
     @NotEmpty(message = "*Please provide an email")
     private String email;
 
@@ -28,9 +28,9 @@ public class User {
     @NotEmpty(message = "*Please provide your password")
     private String password;
 
-    @Column(name = "name")
+    @Column(name = "first_name")
     @NotEmpty(message = "*Please provide your name")
-    private String name;
+    private String firstName;
 
     @Column(name = "last_name")
     @NotEmpty(message = "*Please provide your last name")
