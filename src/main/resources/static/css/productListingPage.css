@@ -1,0 +1,139 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #f6f6f6;
+  text-rendering: optimizeLegibility;
+}
+
+nav {
+  padding: 0 2rem;
+}
+@media screen and (max-width: 992px) {
+  nav {
+    padding: 0;
+  }
+}
+nav .nav-wrapper {
+  background: inherit;
+}
+nav form {
+  position: relative;
+  background: inherit;
+  height: 100%;
+}
+nav form .input-field {
+  height: 100%;
+}
+nav .brand-logo {
+  height: 100%;
+}
+nav .brand-logo img {
+  vertical-align: middle;
+}
+@media screen and (min-width: 992px) {
+  nav .brand-logo img {
+    height: 80%;
+  }
+}
+
+.search-close-icon {
+  display: none !important;
+  position: absolute;
+  top: 0;
+  left: 100% !important;
+  padding-left: 0;
+  color: rgba(0, 0, 0, 0.54);
+  transition: color .2s;
+  cursor: pointer;
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.54);
+}
+input.search-field {
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.54);
+  border: 0;
+  border-radius: 5px;
+  height: 36px;
+  padding: 8px 8px 8px 60px;
+  width: 200px;
+  background: #f7f7f7;
+  transition: background 0.2s, width .2s;
+}
+input.search-field:focus {
+  outline: none;
+  width: 500px;
+  color: #212121;
+}
+input.search-field:focus:hover {
+  background: #f7f7f7;
+}
+input.search-field:focus:hover {
+  background: #ebebeb;
+}
+
+.search-icon {
+  position: absolute;
+  top: 0;
+  padding-left: 20px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.filter-container ul {
+  padding: 1rem 2rem;
+}
+
+.filter-container ul li {
+  display: block;
+  padding: 16px 0 0;
+}
+
+#container {
+  padding: 20px 10px;
+}
+
+.card-title {
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+.product-card .card {
+  margin: 20px;
+  overflow: hidden;
+}
+.product-card .card .price {
+  width: 70px;
+  height: 70px;
+  font-weight: 600;
+  font-size: 1.45rem;
+  line-height: 70px;
+  margin: 10px;
+  position: absolute;
+  top: 0;
+  letter-spacing: 0;
+}
+
+.product-card ul.card-action-buttons {
+  margin: -18px 7px 0 0;
+  text-align: right;
+}
+.product-card ul.card-action-buttons li {
+  display: inline-block;
+  padding-left: 7px;
+}
+
+.product {
+  width: 20%;
+  padding: 10px;
+}
+.product .card {
+  margin: 0;
+}
+.product .card .card-content {
+  padding: 5px 10px;
+}

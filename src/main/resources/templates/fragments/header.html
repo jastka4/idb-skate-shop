@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<body th:fragment="header">
+<nav class="indigo">
+    <div class="nav-wrapper">
+        <a th:href="@{/}" class="brand-logo"><img class="responsive-img" th:src="@{images/logo-2.png}"></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right">
+            <li>
+                <form action="" class="browser-default right hide-on-med-and-down">
+                    <input id="search-input" placeholder="Search" type="text" class="browser-default search-field" name="q" value="" autocomplete="off" aria-label="Search box">
+                    <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                    <i class="material-icons search-close-icon">cancel</i>
+                </form>
+            </li>
+            <li><a th:href="@{/login}"><i class="material-icons left">person</i><span class="hide-on-med-and-down">Log in / Register</span></a></li>
+            <li><a th:href="@{/cart}"><i class="material-icons left">shopping_cart</i><span class="hide-on-med-and-down">Cart</span></a></li>
+        </ul>
+    </div>
+</nav>
+<div class="hide-on-large-only">
+    <form>
+        <div class="input-field">
+            <input id="search-mobile" type="search" required>
+            <label class="label-icon" for="search-mobile"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
