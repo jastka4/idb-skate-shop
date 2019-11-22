@@ -19,3 +19,11 @@ body {
   background-color: $background-color;
   text-rendering: optimizeLegibility;
 }
+
+.main-color {
+  background: $base-color;
+}
+
+.main-color-text {
+  color: $base-color;
+}

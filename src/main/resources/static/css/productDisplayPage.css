@@ -10,6 +10,14 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.main-color {
+  background: #202124;
+}
+
+.main-color-text {
+  color: #202124;
+}
+
 nav {
   padding: 0 2rem;
 }

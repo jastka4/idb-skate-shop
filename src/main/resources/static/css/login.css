@@ -9,6 +9,14 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.main-color {
+  background: #202124;
+}
+
+.main-color-text {
+  color: #202124;
+}
+
 .brand-logo {
   max-width: 500px;
   display: inline-block;
