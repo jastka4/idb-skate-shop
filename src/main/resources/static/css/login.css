@@ -2,16 +2,66 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #f6f6f6;
+  text-rendering: optimizeLegibility;
+}
+
+.main-color {
+  background: #202124;
+}
+
+.main-color-text {
+  color: #202124;
+}
+
+.brand-logo {
+  max-width: 500px;
+  display: inline-block;
+  padding: 0 30px;
+}
+
+.wrapper {
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+
 .container-box {
   display: inline-block;
   padding: 32px 48px 0 48px;
   border: 1px solid #EEE;
 }
 
-.login-image {
-  width: 250px;
+.form-signin {
+  max-width: 420px;
+  padding: 30px 38px 66px;
+  margin: 0 auto;
+  background-color: #eee;
+  border: 3px dotted rgba(0, 0, 0, 0.1);
 }
 
-.spacing {
-  padding: 1rem 0;
+.form-signin-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+}
+
+input[type="text"] {
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }

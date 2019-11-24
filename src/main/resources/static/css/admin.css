@@ -3,6 +3,21 @@
 }
 
 body {
+  padding: 0;
+  margin: 0;
+  background-color: #f6f6f6;
+  text-rendering: optimizeLegibility;
+}
+
+.main-color {
+  background: #202124;
+}
+
+.main-color-text {
+  color: #202124;
+}
+
+body {
   background: #f6f6f6;
 }
 

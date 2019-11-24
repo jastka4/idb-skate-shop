@@ -1,0 +1,85 @@
+@import "main";
+
+nav {
+  padding: 0 2rem;
+
+  @media screen and (max-width: $break-large) {
+    padding: 0;
+  }
+
+  .nav-wrapper {
+    background: inherit;
+  }
+
+  form {
+    position: relative;
+    background: inherit;
+    height: 100%;
+
+    .input-field {
+      height: 100%;
+    }
+  }
+
+  .brand-logo {
+    height: 100%;
+
+    img {
+      vertical-align: middle;
+
+      @media screen and (min-width: $break-large) {
+        height: 80%;
+      }
+    }
+  }
+}
+
+.search-close-icon {
+  display: none !important;
+  position: absolute;
+  top: 0;
+  left: 100% !important;
+  padding-left: 0;
+  color: rgba(0, 0, 0, 0.54);
+  transition: color .2s;
+  cursor: pointer;
+}
+
+input {
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.54);
+  }
+
+  &.search-field {
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.54);
+    border: 0;
+    border-radius: 5px;
+    height: 36px;
+    padding: 8px 8px 8px 60px;
+    width: 200px;
+    background: #f7f7f7;
+    transition: background 0.2s, width .2s;
+
+    &:focus {
+      outline: none;
+      width: 500px;
+      color: #212121;
+
+      &:hover {
+        background: #f7f7f7;
+      }
+
+      &:hover {
+        background: #ebebeb;
+      }
+    }
+  }
+}
+
+.search-icon {
+  position: absolute;
+  top: 0;
+  padding-left: 20px;
+  color: rgba(0, 0, 0, 0.54);
+}

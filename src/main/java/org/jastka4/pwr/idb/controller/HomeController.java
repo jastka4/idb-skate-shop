@@ -15,13 +15,17 @@ public class HomeController {
     @Resource
     private UserService userService;
 
-    @GetMapping(value = "/hello")
+    @GetMapping(value = "/")
     public ModelAndView hello() {
         ModelAndView modelAndView = new ModelAndView();
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByEmail(auth.getName());
-        modelAndView.addObject("userName", "Welcome " + user.getFirstName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-        modelAndView.setViewName("hello");
+        modelAndView.setViewName("productListingPage");
+        return modelAndView;
+    }
+
+    @GetMapping(value = "/product")
+    public ModelAndView helloProduct() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("productDisplayPage");
         return modelAndView;
     }
 

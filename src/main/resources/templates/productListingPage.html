@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <title>Spring Security Tutorial</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" type="text/css" th:href="@{css/materialize.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{css/productListingPage.css}"/>
+
+    <script th:src="@{js/materialize.min.js}" defer></script>
+    <script th:src="@{js/productListingPage.js}" defer></script>
+</head>
+<body>
+<nav th:replace="fragments/header.html  :: header"></nav>
+
+<div id="container">
+    <div class="row">
+        <aside class="col s12 m12 l3" th:insert="fragments/filters.html"></aside>
+
+        <div class="col s12 m12 l9">
+            <h4>Products</h4>
+            <h5>Category name</h5>
+            <div id="card-container" class="row">
+                <div th:replace="fragments/productCard.html"></div>
+                <div th:replace="fragments/productCard.html"></div>
+                <div th:replace="fragments/productCard.html"></div>
+                <div th:replace="fragments/productCard.html"></div>
+                <div th:replace="fragments/productCard.html"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="fragments/footer.html  :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,60 @@
+@import "partials/header";
+
+.filter-container ul {
+  padding: 1rem 2rem;
+}
+
+.filter-container ul li {
+  display: block;
+  padding: 16px 0 0;
+}
+
+#container {
+  padding: 20px 10px;
+}
+
+
+.card-title {
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+.product-card .card {
+  margin: 20px;
+  overflow: hidden;
+
+  .price {
+    width: 70px;
+    height: 70px;
+    font-weight: 600;
+    font-size: 1.45rem;
+    line-height: 70px;
+    margin: 10px;
+    position: absolute;
+    top: 0;
+    letter-spacing: 0;
+  }
+}
+
+.product-card ul.card-action-buttons {
+  margin: -18px 7px 0 0;
+  text-align: right;
+
+  li {
+    display: inline-block;
+    padding-left: 7px;
+  }
+}
+
+.product {
+  width: 20%;
+  padding: 10px;
+
+  .card {
+    margin: 0;
+
+    .card-content {
+      padding: 5px 10px;
+    }
+  }
+}

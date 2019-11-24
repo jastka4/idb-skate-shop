@@ -11,10 +11,13 @@
 
 <body>
 <main>
-    <div class="center spacing">
-        <img class="responsive-img login-image spacing" src="https://i.imgur.com/ax0NCsK.gif" alt=""/>
+    <div style="text-align: center;">
+        <a th:href="@{/}" class="brand-logo">
+            <img class="responsive-img" th:src="@{images/logo-1.png}" alt="Skateboarder logo"/>
+        </a>
+        <div class="section"></div>
 
-        <h5 class="indigo-text spacing">Please, login into your account</h5>
+        <h5 class="main-color-text spacing">Please, login into your account</h5>
 
         <div class="container">
             <div class="z-depth-1 grey lighten-4 row container-box">
@@ -45,7 +48,7 @@
 
                     <div class="center">
                         <div class='row'>
-                            <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>
+                            <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect main-color'>
                                 Login
                             </button>
                         </div>
