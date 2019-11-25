@@ -5,14 +5,14 @@
 <head>
     <title>Spring Security Tutorial</title>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-    <link rel="stylesheet" type="text/css" th:href="@{css/materialize.min.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{css/productDisplayPage.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/materialize.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/productDisplayPage.css}"/>
 
-    <script th:src="@{js/materialize.min.js}" defer></script>
-    <script th:src="@{js/productListingPage.js}" defer></script>
+    <script th:src="@{/js/materialize.min.js}" defer></script>
+    <script th:src="@{/js/productListingPage.js}" defer></script>
 </head>
 <body>
-<nav th:replace="fragments/header.html  :: header"></nav>
+<nav th:replace="/fragments/header.html  :: header"></nav>
 
 <main>
     <div class="container">
@@ -39,16 +39,13 @@
                 </div>
             </div>
             <div class="col s12 m5">
-                <h1>Bonsai</h1>
-                <h2>$19.99</h2>
+                <h1 th:text="${itemName}"></h1>
+                <h2 th:text="${itemPrice}"></h2>
+                <p>Ilość w magazynie: </p>
                 <div class="description">
-                    <p>The purposes of bonsai are primarily contemplation for the viewer, and the pleasant exercise of
-                        effort and ingenuity for the grower.</p>
-                    <p>By contrast with other plant cultivation practices, bonsai is not intended for production of food
-                        or for medicine. Instead, bonsai practice focuses on long-term cultivation and shaping of one or
-                        more small trees growing in a container.</p>
+                    <p th:text="${itemDescription}"></p>
                 </div>
-                <button class="add-to-cart main-color">Add To Cart</button>
+                <button class="add-to-cart main-color">Dodaj do koszyka</button>
             </div>
         </div>
         <div class="row related-products">

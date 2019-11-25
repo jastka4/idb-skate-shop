@@ -27,3 +27,8 @@ VALUES (1, 0),
        (3, 1),
        (4, 1),
        (5, 1);
+
+INSERT INTO `items`
+    (`item_id`, `items_amount`, `item_name`, `item_desc`, `item_price`)
+VALUES (0, 1, 'Przedmiot 1', 'Opis przedmiotu 1', 1.22),
+       (1, 1, 'Przedmiot 2', 'Opis przedmiotu 2', 2.22);
