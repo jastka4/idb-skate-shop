@@ -12,7 +12,7 @@
     <script th:src="@{js/productListingPage.js}" defer></script>
 </head>
 <body>
-<nav th:replace="fragments/header.html  :: header"></nav>
+<nav th:replace="fragments/header.html :: header"></nav>
 
 <div id="container">
     <div class="row">
@@ -22,11 +22,9 @@
             <h4>Products</h4>
             <h5>Category name</h5>
             <div id="card-container" class="row">
-                <div th:replace="fragments/productCard.html"></div>
-                <div th:replace="fragments/productCard.html"></div>
-                <div th:replace="fragments/productCard.html"></div>
-                <div th:replace="fragments/productCard.html"></div>
-                <div th:replace="fragments/productCard.html"></div>
+                <div th:each="item : ${items}">
+                    <div th:replace="fragments/productCard.html :: productCard(id=${item.id})"></div>
+                </div>
             </div>
         </div>
     </div>

@@ -10,6 +10,7 @@
 
     <script th:src="@{/js/materialize.min.js}" defer></script>
     <script th:src="@{/js/productListingPage.js}" defer></script>
+
 </head>
 <body>
 <nav th:replace="/fragments/header.html  :: header"></nav>
@@ -39,13 +40,17 @@
                 </div>
             </div>
             <div class="col s12 m5">
+                <p>Numer id przedmiotu: <span th:text="${param.id}"/></p>
                 <h1 th:text="${itemName}"></h1>
                 <h2 th:text="${itemPrice}"></h2>
-                <p>Ilość w magazynie: </p>
+                <p>Ilość w magazynie: <span th:text="${itemAmount}"/></p>
                 <div class="description">
                     <p th:text="${itemDescription}"></p>
                 </div>
-                <button class="add-to-cart main-color">Dodaj do koszyka</button>
+
+                <form method="post">
+                    <button class="add-to-cart main-color" name="id" th:value="${param.id}" type="submit">Dodaj do koszyka</button>
+                </form>
             </div>
         </div>
         <div class="row related-products">

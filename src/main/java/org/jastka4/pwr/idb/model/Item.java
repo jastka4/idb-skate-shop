@@ -11,7 +11,7 @@ import javax.validation.constraints.NotEmpty;
 public class Item {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "item_id")
     private int id;
 
@@ -33,8 +33,8 @@ public class Item {
 //    @Column(name = "item_category")
 //    private String category;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_cart")
+    @ManyToOne
+    @JoinColumn(name = "cart_id", foreignKey = @ForeignKey(name = "cart_id_fk"))
     private Cart cart;
 
 }

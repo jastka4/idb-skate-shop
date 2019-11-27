@@ -15,4 +15,9 @@ public class CartService {
     }
 
     public Cart findById(int id){ return cartRepository.findById(id); }
+
+    public Cart saveCart(Cart cart){
+        cartRepository.save(cart);
+        return cart;
+    }
 }
