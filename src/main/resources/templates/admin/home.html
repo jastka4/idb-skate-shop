@@ -55,48 +55,36 @@
                 <div class="card blue white-text">
                     <div class="card-content valign-wrapper">
                         <div class="card-text">
-                            <h6>25</h6>
-                            <p>Customers</p>
+                            <p>Użytkownicy:</p>
+                            <h5 th:text="${usersCount}">000</h5>
                         </div>
                         <div class="card-icon"><i class="material-icons medium valign">people</i></div>
                     </div>
-                    <div class="card-action"><a th:href="@{/admin/customers}">View customers</a></div>
+                    <div class="card-action"><a th:href="@{/admin/customers}">Wyświetl listę</a></div>
                 </div>
             </div>
             <div class="col s12 m3">
                 <div class="card blue white-text">
                     <div class="card-content valign-wrapper">
                         <div class="card-text">
-                            <h6>156</h6>
-                            <p>Products</p>
+                            <p>Produkty:</p>
+                            <h5 th:text="${itemsCount}">000</h5>
                         </div>
                         <div class="card-icon"><i class="material-icons medium valign">local_offer</i></div>
                     </div>
-                    <div class="card-action"><a th:href="@{/admin/products}">View products</a></div>
+                    <div class="card-action"><a th:href="@{/admin/products}">Wyświetl listę</a></div>
                 </div>
             </div>
             <div class="col s12 m3">
                 <div class="card blue white-text">
                     <div class="card-content valign-wrapper">
                         <div class="card-text">
-                            <h6>7</h6>
-                            <p>Categories</p>
-                        </div>
-                        <div class="card-icon"><i class="material-icons medium valign">view_list</i></div>
-                    </div>
-                    <div class="card-action"><a th:href="@{/admin/categories}">View categories</a></div>
-                </div>
-            </div>
-            <div class="col s12 m3">
-                <div class="card blue white-text">
-                    <div class="card-content valign-wrapper">
-                        <div class="card-text">
-                            <h6>14</h6>
-                            <p>Orders</p>
+                            <p>Zamówienia:</p>
+                            <h5 th:text="${ordersCount}">000</h5>
                         </div>
                         <div class="card-icon"><i class="material-icons medium valign">receipt</i></div>
                     </div>
-                    <div class="card-action"><a th:href="@{/admin/orders}">View orders</a></div>
+                    <div class="card-action"><a th:href="@{/admin/orders}">Wyświetl listę</a></div>
                 </div>
             </div>
         </div>

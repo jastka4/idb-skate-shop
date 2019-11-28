@@ -4,6 +4,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -27,14 +30,9 @@ public class Item {
     private int amount;
 
     @Column(name = "item_price")
-    @NotEmpty(message = "*Price")
+    @NotNull(message = "*Price")
     private float price;
-//
-//    @Column(name = "item_category")
-//    private String category;
 
-    @ManyToOne
-    @JoinColumn(name = "cart_id", foreignKey = @ForeignKey(name = "cart_id_fk"))
-    private Cart cart;
-
+    @ManyToMany(mappedBy = "itemsInCart")
+    private List<Cart> carts = new ArrayList<>();
 }

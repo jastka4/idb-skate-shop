@@ -8,8 +8,5 @@ import javax.annotation.Resource;
 
 @Controller
 public class CartController {
-    @Resource
-    private ItemService itemService;
-
 
 }

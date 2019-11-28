@@ -21,14 +21,18 @@ public class Cart {
     @Column(name = "cart_value")
     private float value;
 
-//    @Column(name = "payment_type") // cash or credit card
-//    private String paymentType;
-
+    //TODO
     @ManyToOne
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "user_id_fk"))
     private User client;
-//
-//    @OneToMany
-//    @JoinColumn(name = "fk_cart")
-//    private List<Item> items = new ArrayList<Item>();
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "cart_item",
+            joinColumns = @JoinColumn(name = "cart_id"),
+            inverseJoinColumns = @JoinColumn(name = "item_id")
+    )
+    private List<Item> itemsInCart = new ArrayList<>();
 }

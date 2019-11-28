@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+        lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users List</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/materialize.min.css}"/>
+
+</head>
+<body>
+<div class="container">
+    <h3>Lista użytkowników:</h3>
+    <div class="z-depth-1 grey lighten-3 row container-box">
+        <table>
+            <thead>
+            <tr>
+                <th class="center-align">ID</th>
+                <th class="center-align">Imię</th>
+                <th class="center-align">Nazwisko</th>
+                <th class="center-align">Email</th>
+                <th class="center-align">Przypisane role</th>
+                <th class="center-align">Usuń</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${users.empty}">
+                <td colspan="6" class="center-align"> Brak zarejestrowanych użytkowników </td>
+            </tr>
+            <tr th:each="user : ${users}">
+                <td class="center-align"><span th:text="${user.id}"/></td>
+                <td class="center-align"><span th:text="${user.firstName}"/></td>
+                <td class="center-align"><span th:text="${user.lastName}"/></td>
+                <td class="center-align"><span th:text="${user.email}"/></td>
+                <td class="center-align"><span th:text="${user.roles}"/></td>
+                <td class="center-align">
+                    <button class="waves-effect waves-teal btn-flat">
+                        <i class="material-icons red-text text-accent-4">delete_forever</i>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col s12 m6"><a class="waves-effect waves-teal btn-flat" th:href="@{/registration}"><i class="medium material-icons">playlist_add</i> Dodaj użytkownika </a></div>
+        </div>
+    </div>
+    <div class="col s12 m6"><a class="waves-effect waves-teal btn-flat" th:href="@{/admin/home}"><i class="medium material-icons">navigate_before</i> Wróć </a></div>
+
+
+
+</div>
+</body>
+</html>
