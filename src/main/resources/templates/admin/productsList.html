@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products List</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/materialize.min.css}"/>
+
+</head>
+<body>
+<div class="container">
+    <h3>Lista produktów:</h3>
+    <div class="z-depth-1 grey lighten-3 row container-box">
+        <table>
+            <thead>
+            <tr>
+                <th class="center-align">ID</th>
+                <th class="center-align">Nazwa</th>
+                <th class="center-align">Opis</th>
+                <th class="center-align">Ilość w magazynie</th>
+                <th class="center-align">Cena</th>
+                <th class="center-align">Usuń</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${products.empty}">
+                <td colspan="6" class="center-align"> Brak towaru w bazie </td>
+            </tr>
+            <tr th:each="product : ${products}">
+                <td class="center-align"><span th:text="${product.id}"/></td>
+                <td class="center-align"><span th:text="${product.name}"/></td>
+                <td class="center-align"><span th:text="${product.description}"/></td>
+                <td class="center-align"><span th:text="${product.amount}"/></td>
+                <td class="center-align"><span th:text="${product.price}"/></td>
+                <td class="center-align">
+                    <button class="waves-effect waves-teal btn-flat">
+                        <i class="material-icons red-text text-accent-4">delete_forever</i>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col s12 m6"><a class="waves-effect waves-teal btn-flat" th:href="@{/admin/addItem}"><i class="medium material-icons">playlist_add</i> Dodaj produkt </a></div>
+        </div>
+    </div>
+    <div class="col s12 m6"><a class="waves-effect waves-teal btn-flat" th:href="@{/admin/home}"><i class="medium material-icons">navigate_before</i> Wróć </a></div>
+
+</div>
+</body>
+</html>

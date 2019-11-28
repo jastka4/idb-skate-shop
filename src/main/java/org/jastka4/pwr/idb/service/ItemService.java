@@ -22,14 +22,6 @@ public class ItemService {
 
     public Item findItemById(int id){ return itemRepository.findById(id); }
 
-    public List<Item> findAll(){
-        items = new ArrayList<>();
-        for (int i = 1; findItemById(i) != null; i++){
-            items.add(findItemById(i));
-        }
-        return items;
-    }
-
     public Item saveItem(Item item){
         item.setAmount(1);
 

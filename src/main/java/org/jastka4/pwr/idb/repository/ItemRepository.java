@@ -10,6 +10,5 @@ import java.util.List;
 public interface ItemRepository extends JpaRepository<Item, Long> {
     Item findByName(final String name);
     Item findById(final int id);
-    List<Item> findAll();
     Item save(final Item item);
 }

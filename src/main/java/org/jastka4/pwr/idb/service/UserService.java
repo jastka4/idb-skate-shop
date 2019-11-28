@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 
 @Service()
 public class UserService {
@@ -17,6 +19,7 @@ public class UserService {
     private UserRepository userRepository;
     private RoleRepository roleRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private List<User> users;
 
     @Autowired
     public UserService(UserRepository userRepository,
@@ -31,6 +34,9 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
+    public User findUserById(int id){ return userRepository.findById(id); }
+
+
     public User saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(1);
@@ -39,5 +45,6 @@ public class UserService {
         userRepository.save(user);
         return user;
     }
+
 
 }
