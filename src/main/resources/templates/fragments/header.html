@@ -4,18 +4,27 @@
 <body th:fragment="header">
 <nav class="main-color">
     <div class="nav-wrapper">
-        <a th:href="@{/}" class="brand-logo"><img class="responsive-img" th:src="@{/images/logo-2.png}"></a>
+        <a th:href="@{/}" class="brand-logo"><img class="responsive-img" th:src="@{/images/logo-2.png}"
+                                                  alt="Skateboarder logo"></a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right">
             <li>
                 <form action="" class="browser-default right hide-on-med-and-down">
-                    <input id="search-input" placeholder="Search" type="text" class="browser-default search-field" name="q" value="" autocomplete="off" aria-label="Search box">
+                    <input id="search-input" th:placeholder="#{header.search.placeholder}" type="text"
+                           class="browser-default search-field" name="q" value="" autocomplete="off"
+                           aria-label="Search box">
                     <label for="search-input"><i class="material-icons search-icon">search</i></label>
                     <i class="material-icons search-close-icon">cancel</i>
                 </form>
             </li>
-            <li><a th:href="@{/login}"><i class="material-icons left">person</i><span class="hide-on-med-and-down">Log in / Register</span></a></li>
-            <li><a th:href="@{/cart}"><i class="material-icons left">shopping_cart</i><span class="hide-on-med-and-down">Cart</span></a></li>
+            <li><a th:href="@{/login}"><i class="material-icons left">person</i><span class="hide-on-med-and-down"
+                                                                                      th:text="#{header.login_register}"></span></a>
+            </li>
+            <li><a th:href="@{/admin/home}"><i class="material-icons left">settings</i><span
+                    class="hide-on-med-and-down" th:text="#{header.admin_panel}"></span></a></li>
+            <li><a th:href="@{/cart}"><i class="material-icons left">shopping_cart</i><span class="hide-on-med-and-down"
+                                                                                            th:text="#{header.cart}"></span></a>
+            </li>
         </ul>
     </div>
 </nav>

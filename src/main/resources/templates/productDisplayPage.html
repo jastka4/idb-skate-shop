@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
-    <title>Szczegóły produktu</title>
+    <title th:text="#{pdp.product.details}"></title>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/materialize.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/productDisplayPage.css}"/>
@@ -29,33 +29,34 @@
         <div class="row product">
             <div class="col s12 m7">
                 <div class="product-gallery">
-                    <div class="product-image">
-                        <img class="active" src="https://source.unsplash.com/W1yjvf5idqA">
+                    <div class="product-image" th:with="image = ${product.images.get(0)}">
+                        <img th:src="${image.getUrl()}" th:alt="${image.alternative}">
                     </div>
                     <ul class="image-list">
-                        <li class="image-item"><img src="https://source.unsplash.com/W1yjvf5idqA"></li>
-                        <li class="image-item"><img src="https://source.unsplash.com/VgbUxvW3gS4"></li>
-                        <li class="image-item"><img src="https://source.unsplash.com/5WbYFH0kf_8"></li>
+                        <li th:each="image: ${product.images}" class="image-item"><img th:src="${image.getUrl()}"
+                                                                                       th:alt="${image.alternative}">
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="col s12 m5">
-                <p>Numer id przedmiotu: <span th:text="${param.id}"/></p>
-                <h1 th:text="${itemName}"></h1>
-                <h2 th:text="${itemPrice}"></h2>
-                <p>Ilość w magazynie: <span th:text="${itemAmount}"/></p>
+                <p>Code: <span th:text="${product.code}"></span></p>
+                <h1 th:text="${product.name}"></h1>
+                <h2 th:text="${product.price}"></h2>
+                <p>Items in magazine: <span th:text="${product.amount}"></span></p>
                 <div class="description">
-                    <p th:text="${itemDescription}"></p>
+                    <p th:text="${product.description}"></p>
                 </div>
 
-                <form method="post">
-                    <button class="add-to-cart main-color" name="id" th:value="${param.id}" type="submit">Dodaj do koszyka</button>
+                <form method="post" th:action="@{/cart}">
+                    <button class="add-to-cart main-color" name="id" th:value="${param.id}" type="submit"
+                            th:text="#{button.add_to_cart}"></button>
                 </form>
             </div>
         </div>
         <div class="row related-products">
             <div class="col s12">
-                <h3>You may also like</h3>
+                <h3 th:text="#{pdp.similiar_products}"></h3>
             </div>
             <div class="col s12 m4">
                 <img src="https://source.unsplash.com/miziNqvJx5M">

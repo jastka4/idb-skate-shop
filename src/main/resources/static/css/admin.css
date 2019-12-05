@@ -1,67 +1,73 @@
 * {
-  font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
-  padding: 0;
-  margin: 0;
-  background-color: #f6f6f6;
-  text-rendering: optimizeLegibility;
+    padding: 0;
+    margin: 0;
+    background-color: #f6f6f6;
+    text-rendering: optimizeLegibility;
 }
 
 .main-color {
-  background: #202124;
+    background: #202124;
 }
 
 .main-color-text {
-  color: #202124;
+    color: #202124;
 }
 
 body {
-  background: #f6f6f6;
+    background: #f6f6f6;
 }
 
 header, main, footer {
-  padding-left: 300px;
+    padding-left: 300px;
 }
 
 @media only screen and (max-width: 992px) {
-  header, main, footer {
-    padding-left: 0;
-  }
+    header, main, footer {
+        padding-left: 0;
+    }
 }
+
 nav {
-  background-color: #202124;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    background-color: #202124;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
+
 nav ul a {
-  padding: 0 12px;
+    padding: 0 12px;
 }
+
 nav ul a img {
-  line-height: 56px;
-  vertical-align: middle;
+    line-height: 56px;
+    vertical-align: middle;
 }
 
 .sidenav .background {
-  background: #202124;
+    background: #202124;
 }
 
 .card,
 .card-panel {
-  box-shadow: 0 1px 1px 0 rgba(60, 64, 67, 0.08), 0 1px 3px 1px rgba(60, 64, 67, 0.16);
+    box-shadow: 0 1px 1px 0 rgba(60, 64, 67, 0.08), 0 1px 3px 1px rgba(60, 64, 67, 0.16);
 }
 
 .card .card-action {
-  border-top: none;
+    border-top: none;
 }
+
 .card .card-action a {
-  color: #fff !important;
+    color: #fff !important;
 }
+
 .card .card-text {
-  width: calc(100% - 60px);
+    width: calc(100% - 60px);
 }
+
 .card .card-icon i {
-  width: 100%;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.25);
+    width: 100%;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.25);
 }

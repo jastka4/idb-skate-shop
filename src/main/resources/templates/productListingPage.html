@@ -19,7 +19,7 @@
         <aside class="col s12 m12 l3" th:insert="fragments/filters.html"></aside>
 
         <div class="col s12 m12 l9">
-            <h4>Lista produktów:</h4>
+            <h4 th:text="#{plp.products_list}"></h4>
             <div id="card-container" class="row">
                 <div th:each="item : ${items}">
                     <div th:replace="fragments/productCard.html :: productCard(id=${item.id})"></div>

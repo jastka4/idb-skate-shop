@@ -25,7 +25,7 @@
             </thead>
             <tbody>
             <tr th:if="${products.empty}">
-                <td colspan="6" class="center-align"> Brak towaru w bazie </td>
+                <td colspan="6" class="center-align"> Brak towaru w bazie</td>
             </tr>
             <tr th:each="product : ${products}">
                 <td class="center-align"><span th:text="${product.id}"/></td>
@@ -42,10 +42,12 @@
             </tbody>
         </table>
         <div class="row">
-            <div class="col s12 m6"><a class="waves-effect waves-teal btn-flat" th:href="@{/admin/addItem}"><i class="medium material-icons">playlist_add</i> Dodaj produkt </a></div>
+            <div class="col s12 m6"><a class="waves-effect waves-teal btn-flat" th:href="@{/admin/addItem}"><i
+                    class="medium material-icons">playlist_add</i> Dodaj produkt </a></div>
         </div>
     </div>
-    <div class="col s12 m6"><a class="waves-effect waves-teal btn-flat" th:href="@{/admin/home}"><i class="medium material-icons">navigate_before</i> Wróć </a></div>
+    <div class="col s12 m6"><a class="waves-effect waves-teal btn-flat" th:href="@{/admin/home}"><i
+            class="medium material-icons">navigate_before</i> Wróć </a></div>
 
 </div>
 </body>

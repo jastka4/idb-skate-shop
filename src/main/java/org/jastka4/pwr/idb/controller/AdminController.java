@@ -13,12 +13,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.validation.Valid;
 
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
     @Resource
     private UserRepository userRepository;
@@ -31,7 +32,7 @@ public class AdminController {
     @Resource
     private ItemService itemService;
 
-    @GetMapping(value = "/admin/home")
+    @GetMapping(value = "/home")
     public ModelAndView adminHome() {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -46,32 +47,32 @@ public class AdminController {
         return modelAndView;
     }
 
-    @GetMapping(value = "/admin/customers")
-    public ModelAndView customersList(){
+    @GetMapping(value = "/customers")
+    public ModelAndView customersList() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("users", userRepository.findAll());
         modelAndView.setViewName("/admin/usersList");
         return modelAndView;
     }
 
-    @GetMapping(value = "/admin/products")
-    public ModelAndView productsList(){
+    @GetMapping(value = "/products")
+    public ModelAndView productsList() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("products", itemRepository.findAll());
+        modelAndView.addObject("products", itemService.findAll());
         modelAndView.setViewName("/admin/productsList");
         return modelAndView;
     }
 
-    @GetMapping(value = "/admin/orders")
-    public ModelAndView ordersList(){
+    @GetMapping(value = "/orders")
+    public ModelAndView ordersList() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("orders", orderRepository.findAll());
         modelAndView.setViewName("/admin/ordersList");
         return modelAndView;
     }
 
-    @GetMapping(value = "/admin/addItem")
-    public ModelAndView addItem(){
+    @GetMapping(value = "/addItem")
+    public ModelAndView addItem() {
         ModelAndView modelAndView = new ModelAndView();
         Item item = new Item();
         modelAndView.addObject("item", item);
@@ -79,13 +80,13 @@ public class AdminController {
         return modelAndView;
     }
 
-    @PostMapping(value = "/admin/addItem")
-    public ModelAndView createNewItem(Item item, BindingResult bindingResult){
+    @PostMapping(value = "/addItem")
+    public ModelAndView createNewItem(Item item, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
-        if (itemService.findItemByName(item.getName()) != null){
+        if (itemService.findItemByName(item.getName()) != null) {
             bindingResult.rejectValue("name", "error.item", "Przedmiot o takiej nazwie już istnieje!");
         }
-        if (bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             modelAndView.setViewName("/admin/addItem");
         } else {
             itemService.saveItem(item);

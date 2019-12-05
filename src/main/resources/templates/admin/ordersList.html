@@ -24,7 +24,7 @@
             </thead>
             <tbody>
             <tr th:if="${orders.empty}">
-                <td colspan="6" class="center-align"> Brak zarejestrowanych zamówień </td>
+                <td colspan="6" class="center-align"> Brak zarejestrowanych zamówień</td>
             </tr>
             <tr th:each="order : ${orders}">
                 <td class="center-align"><span th:text="${order.id}"/></td>
@@ -40,7 +40,8 @@
             </tbody>
         </table>
     </div>
-    <p><a class="valign-wrapper" th:href="@{/admin/home}"><i class="material-icons">navigate_before</i> Wróć do panelu administratora</a></p>
+    <p><a class="valign-wrapper" th:href="@{/admin/home}"><i class="material-icons">navigate_before</i> Wróć do panelu
+        administratora</a></p>
 </div>
 </body>
 </html>

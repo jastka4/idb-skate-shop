@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -34,7 +33,9 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
-    public User findUserById(int id){ return userRepository.findById(id); }
+    public User findUserById(int id) {
+        return userRepository.findById(id);
+    }
 
 
     public User saveUser(User user) {
