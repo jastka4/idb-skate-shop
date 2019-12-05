@@ -3,9 +3,8 @@ package org.jastka4.pwr.idb.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @Entity
@@ -16,10 +15,10 @@ public class Order {
     @Column(name = "order_id")
     private int id;
 
-    @Column(name = "order_date")
+    @Column(name = "date")
     private LocalDateTime date;
 
-    @Column(name = "order_value")
-    private float value;
+    @Column(name = "value")
+    private BigDecimal value;
 
 }

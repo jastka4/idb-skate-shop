@@ -43,6 +43,7 @@ nav {
 .card {
   .card-action {
     border-top: none;
+
     a {
       color: #fff !important;
     }
@@ -51,6 +52,7 @@ nav {
   .card-text {
     width: calc(100% - 60px);
   }
+
   .card-icon i {
     width: 100%;
     text-align: center;

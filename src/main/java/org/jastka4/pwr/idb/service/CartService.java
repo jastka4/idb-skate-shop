@@ -10,13 +10,15 @@ public class CartService {
     private CartRepository cartRepository;
 
     @Autowired
-    public CartService(CartRepository cartRepository){
+    public CartService(CartRepository cartRepository) {
         this.cartRepository = cartRepository;
     }
 
-    public Cart findById(int id){ return cartRepository.findById(id); }
+    public Cart findById(int id) {
+        return cartRepository.findById(id);
+    }
 
-    public Cart saveCart(Cart cart){
+    public Cart saveCart(Cart cart) {
         cartRepository.save(cart);
         return cart;
     }

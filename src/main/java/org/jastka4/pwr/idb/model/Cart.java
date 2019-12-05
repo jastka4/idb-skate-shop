@@ -3,8 +3,10 @@ package org.jastka4.pwr.idb.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -15,24 +17,17 @@ public class Cart {
     @Column(name = "cart_id")
     private int id;
 
-    @Column(name = "cart_date")
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    private User user;
+
+    @Column(name = "date")
     private LocalDateTime date;
 
-    @Column(name = "cart_value")
-    private float value;
+    @Column(name = "value")
+    private BigDecimal value;
 
-    //TODO
-    @ManyToOne
-    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "user_id_fk"))
-    private User client;
-
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    @JoinTable(name = "cart_item",
-            joinColumns = @JoinColumn(name = "cart_id"),
-            inverseJoinColumns = @JoinColumn(name = "item_id")
-    )
-    private List<Item> itemsInCart = new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "item_carts", joinColumns = @JoinColumn(name = "cart_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
+    private List<Item> items = new ArrayList<>();
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-        lang="en">
+      lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Users List</title>
@@ -25,7 +25,7 @@
             </thead>
             <tbody>
             <tr th:if="${users.empty}">
-                <td colspan="6" class="center-align"> Brak zarejestrowanych użytkowników </td>
+                <td colspan="6" class="center-align"> Brak zarejestrowanych użytkowników</td>
             </tr>
             <tr th:each="user : ${users}">
                 <td class="center-align"><span th:text="${user.id}"/></td>
@@ -42,11 +42,12 @@
             </tbody>
         </table>
         <div class="row">
-            <div class="col s12 m6"><a class="waves-effect waves-teal btn-flat" th:href="@{/registration}"><i class="medium material-icons">playlist_add</i> Dodaj użytkownika </a></div>
+            <div class="col s12 m6"><a class="waves-effect waves-teal btn-flat" th:href="@{/registration}"><i
+                    class="medium material-icons">playlist_add</i> Dodaj użytkownika </a></div>
         </div>
     </div>
-    <div class="col s12 m6"><a class="waves-effect waves-teal btn-flat" th:href="@{/admin/home}"><i class="medium material-icons">navigate_before</i> Wróć </a></div>
-
+    <div class="col s12 m6"><a class="waves-effect waves-teal btn-flat" th:href="@{/admin/home}"><i
+            class="medium material-icons">navigate_before</i> Wróć </a></div>
 
 
 </div>
