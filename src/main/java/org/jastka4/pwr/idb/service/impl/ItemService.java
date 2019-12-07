@@ -10,7 +10,6 @@ import java.util.List;
 @Service
 public class ItemService {
     private ItemRepository itemRepository;
-    private List<Item> items;
 
     @Autowired
     public ItemService(ItemRepository itemRepository) {
@@ -34,5 +33,9 @@ public class ItemService {
 
         itemRepository.save(item);
         return item;
+    }
+
+    public void remove(final long id) {
+        itemRepository.deleteById(id);
     }
 }

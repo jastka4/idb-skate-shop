@@ -37,6 +37,9 @@ public class UserService {
         return userRepository.findById(id);
     }
 
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
 
     public User saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));

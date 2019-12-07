@@ -16,7 +16,7 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "item_id")
-    private int id;
+    private long id;
 
     @Column(name = "code")
     @NotEmpty(message = "*Code cannot be empty")
