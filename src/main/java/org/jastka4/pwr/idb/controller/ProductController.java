@@ -22,6 +22,7 @@ public class ProductController {
         ModelAndView modelAndView = new ModelAndView();
         Item item = itemService.findItemById(itemId);
         modelAndView.addObject("product", item);
+        modelAndView.addObject("msg","");
         modelAndView.setViewName("productDisplayPage");
         return modelAndView;
     }

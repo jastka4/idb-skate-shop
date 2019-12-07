@@ -26,6 +26,10 @@
                 </ol>
             </div>
         </div>
+        <div class="row s12">
+            <span th:if="${msg == 'succes'}" class="large" th:text="#{pdp.message_success}">s</span>
+            <span th:if="${msg == 'empty'}" class="large" th:text="#{pdp.message_empty}">e</span>
+        </div>
         <div class="row product">
             <div class="col s12 m7">
                 <div class="product-gallery">
