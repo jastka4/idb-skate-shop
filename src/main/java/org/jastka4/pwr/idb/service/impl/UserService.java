@@ -1,4 +1,4 @@
-package org.jastka4.pwr.idb.service;
+package org.jastka4.pwr.idb.service.impl;
 
 import org.jastka4.pwr.idb.model.Role;
 import org.jastka4.pwr.idb.model.User;
@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
-@Service()
+@Service
 public class UserService {
 
     private UserRepository userRepository;

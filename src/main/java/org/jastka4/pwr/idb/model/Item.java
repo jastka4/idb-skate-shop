@@ -36,6 +36,10 @@ public class Item {
     @NotNull(message = "*Price cannot be empty")
     private BigDecimal price;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     @OneToMany(mappedBy = "productId")
     private List<Image> images;
 }
