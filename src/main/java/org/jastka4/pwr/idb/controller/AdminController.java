@@ -11,9 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
@@ -37,7 +35,6 @@ public class AdminController {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
-        System.out.println("Zalogowany jako: " + user);
         modelAndView.addObject("userName", "Welcome " + user.getFirstName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
         modelAndView.addObject("usersCount", userRepository.findAll().size());
         modelAndView.addObject("itemsCount", itemRepository.findAll().size());
@@ -51,7 +48,7 @@ public class AdminController {
     public ModelAndView customersList() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("users", userRepository.findAll());
-        modelAndView.setViewName("/admin/usersList");
+        modelAndView.setViewName("/admin/users");
         return modelAndView;
     }
 
@@ -59,7 +56,35 @@ public class AdminController {
     public ModelAndView productsList() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("products", itemService.findAll());
-        modelAndView.setViewName("/admin/productsList");
+        modelAndView.setViewName("/admin/products");
+        return modelAndView;
+    }
+
+    @GetMapping(value = "/products/add")
+    public ModelAndView getAddProductPage() {
+        final Item item = new Item();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("create", true);
+        modelAndView.addObject("item", item);
+        modelAndView.setViewName("/admin/products");
+        return modelAndView;
+    }
+
+    @PostMapping(value = "/products/add")
+    public @ResponseBody ModelAndView addProduct(final Item item, final BindingResult bindingResult) {
+        ModelAndView modelAndView = new ModelAndView();
+        if (itemService.findItemByName(item.getName()) != null) {
+            bindingResult.rejectValue("name", "error.item", "Przedmiot o takiej nazwie już istnieje!");
+        }
+        if (bindingResult.hasErrors()) {
+            modelAndView.setViewName("/admin/products");
+        } else {
+            itemService.saveItem(item);
+            modelAndView.addObject("create", true);
+            modelAndView.addObject("successMessage", "Product has been added successfully!");
+            modelAndView.addObject("item", new Item());
+            modelAndView.setViewName("/admin/products");
+        }
         return modelAndView;
     }
 
@@ -67,33 +92,7 @@ public class AdminController {
     public ModelAndView ordersList() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("orders", orderRepository.findAll());
-        modelAndView.setViewName("/admin/ordersList");
-        return modelAndView;
-    }
-
-    @GetMapping(value = "/addItem")
-    public ModelAndView addItem() {
-        ModelAndView modelAndView = new ModelAndView();
-        Item item = new Item();
-        modelAndView.addObject("item", item);
-        modelAndView.setViewName("/admin/addItem");
-        return modelAndView;
-    }
-
-    @PostMapping(value = "/addItem")
-    public ModelAndView createNewItem(Item item, BindingResult bindingResult) {
-        ModelAndView modelAndView = new ModelAndView();
-        if (itemService.findItemByName(item.getName()) != null) {
-            bindingResult.rejectValue("name", "error.item", "Przedmiot o takiej nazwie już istnieje!");
-        }
-        if (bindingResult.hasErrors()) {
-            modelAndView.setViewName("/admin/addItem");
-        } else {
-            itemService.saveItem(item);
-            modelAndView.addObject("successMessage", "Pomyślnie dodano!");
-            modelAndView.addObject("item", new Item());
-            modelAndView.setViewName("/admin/addItem");
-        }
+        modelAndView.setViewName("/admin/orders");
         return modelAndView;
     }
 }

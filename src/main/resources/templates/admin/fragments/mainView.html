@@ -1,0 +1,40 @@
+<div class="container-fluid" xmlns:th="http://www.thymeleaf.org">
+    <div class="row">
+        <div class="col s12 m3">
+            <div class="card blue white-text">
+                <div class="card-content valign-wrapper">
+                    <div class="card-text">
+                        <p th:text="#{admin.main.users}"></p>
+                        <h5 th:text="${usersCount}">000</h5>
+                    </div>
+                    <div class="card-icon"><i class="material-icons medium valign">people</i></div>
+                </div>
+                <div class="card-action"><a th:href="@{/admin/customers}" th:text="#{admin.main.show_list}"></a></div>
+            </div>
+        </div>
+        <div class="col s12 m3">
+            <div class="card blue white-text">
+                <div class="card-content valign-wrapper">
+                    <div class="card-text">
+                        <p th:text="#{admin.main.products}"></p>
+                        <h5 th:text="${itemsCount}">000</h5>
+                    </div>
+                    <div class="card-icon"><i class="material-icons medium valign">local_offer</i></div>
+                </div>
+                <div class="card-action"><a th:href="@{/admin/products}" th:text="#{admin.main.show_list}"></a></div>
+            </div>
+        </div>
+        <div class="col s12 m3">
+            <div class="card blue white-text">
+                <div class="card-content valign-wrapper">
+                    <div class="card-text">
+                        <p th:text="#{admin.main.orders}"></p>
+                        <h5 th:text="${ordersCount}">000</h5>
+                    </div>
+                    <div class="card-icon"><i class="material-icons medium valign">receipt</i></div>
+                </div>
+                <div class="card-action"><a th:href="@{/admin/orders}" th:text="#{admin.main.show_list}"></a></div>
+            </div>
+        </div>
+    </div>
+</div>

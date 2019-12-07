@@ -1,0 +1,27 @@
+<ul id="slide-out" class="sidenav sidenav-fixed" xmlns:th="http://www.thymeleaf.org">
+    <li>
+        <div class="user-view">
+            <div class="background"></div>
+            <img class="circle" th:src="@{/images/login.jpg}" alt="Admin image">
+            <span class="white-text name">John Doe</span>
+            <span class="white-text email">jdandturk@gmail.com</span>
+        </div>
+    </li>
+    <li th:classappend="${#httpServletRequest.getRequestURI().contains('home')} ? active : ''"><a
+            th:href="@{/admin/home}"><i class="material-icons">dashboard</i>[[#{admin.sidenav.dashboard}]]</a></li>
+    <li th:classappend="${#httpServletRequest.getRequestURI().contains('customers')} ? active : ''"><a
+            th:href="@{/admin/customers}"><i class="material-icons">person</i>[[#{admin.sidenav.users}]]</a></li>
+    <li th:classappend="${#httpServletRequest.getRequestURI().contains('products')} ? active : ''"><a
+            th:href="@{/admin/products}"><i class="material-icons">local_offer</i>[[#{admin.sidenav.products}]]</a></li>
+    <li th:classappend="${#httpServletRequest.getRequestURI().contains('categories')} ? active : ''"><a
+            th:href="@{/admin/categories}"><i class="material-icons">view_list</i>[[#{admin.sidenav.categories}]]</a>
+    </li>
+    <li th:classappend="${#httpServletRequest.getRequestURI().contains('orders')} ? active : ''"><a
+            th:href="@{/admin/orders}"><i class="material-icons">receipt</i>[[#{admin.sidenav.orders}]]</a></li>
+    <li>
+        <div class="divider"></div>
+    </li>
+    <li><a th:href="@{/logout}"><i class="material-icons">lock</i>[[#{admin.sidenav.logout}]]</a></li>
+    <li><a href="#"><i class="material-icons">settings</i>[[#{admin.sidenav.settings}]]</a></li>
+    <li><a href="#"><i class="material-icons">help</i>[[#{admin.sidenav.help}]]</a></li>
+</ul>

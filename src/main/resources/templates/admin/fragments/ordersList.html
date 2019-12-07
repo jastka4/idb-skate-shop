@@ -1,0 +1,32 @@
+<div class="container" xmlns:th="http://www.thymeleaf.org">
+    <h3 th:text="#{admin.orders.list}"></h3>
+    <div class="z-depth-1 grey lighten-3 row container-box">
+        <table>
+            <thead>
+            <tr>
+                <th class="center-align" th:text="#{admin.orders.id}"></th>
+                <th class="center-align" th:text="#{admin.orders.date}"></th>
+                <th class="center-align" th:text="#{admin.orders.client_id}"></th>
+                <th class="center-align" th:text="#{admin.orders.value}"></th>
+                <th class="center-align" th:text="#{admin.orders.remove}"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${orders.empty}">
+                <td colspan="6" class="center-align" th:text="#{admin.orders.empty}"></td>
+            </tr>
+            <tr th:each="order : ${orders}">
+                <td class="center-align"><span th:text="${order.id}"/></td>
+                <td class="center-align"><span th:text="${order.date}"/></td>
+                <td class="center-align"><span th:text="${order.user_id}"/></td>
+                <td class="center-align"><span th:text="${order.value}"/></td>
+                <td class="center-align">
+                    <button class="waves-effect waves-teal btn-flat">
+                        <i class="material-icons red-text text-accent-4">delete_forever</i>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
