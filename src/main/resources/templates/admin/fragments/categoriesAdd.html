@@ -3,18 +3,18 @@
     <div class="container">
         <div class="z-depth-1 grey lighten-4 row container-box">
 
-            <form class="col s12" method="POST" th:action="@{/admin/products/add}" th:object="${item}">
+            <form class="col s12" method="POST" th:action="@{/admin/categories/add}" th:object="${category}">
                 <div class='row'>
                     <div class='input-field col s12'>
                         <input class='validate' type='text' name='code' id='code' th:field="*{code}"/>
-                        <label for='code' th:text="#{admin.products.code}"></label>
+                        <label for='code' th:text="#{admin.categories.code}"></label>
                     </div>
                 </div>
                 <p class="red-text" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
                 <div class='row'>
                     <div class='input-field col s12'>
                         <input class='validate' type='text' name='name' id='name' th:field="*{name}"/>
-                        <label for='name' th:text="#{admin.products.name}"></label>
+                        <label for='name' th:text="#{admin.categories.name}"></label>
                     </div>
                 </div>
                 <p class="red-text" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
@@ -22,27 +22,31 @@
                     <div class='input-field col s12'>
                         <input class='validate' type='text' name='description' id='description'
                                th:field="*{description}"/>
-                        <label for='description' th:text="#{admin.products.description}"></label>
+                        <label for='description' th:text="#{admin.categories.description}"></label>
                     </div>
                 </div>
-                <p class="red-text" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+                <p class="red-texft" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
                 <div class='row'>
                     <div class='input-field col s12'>
-                        <input id='price' th:field="*{price}" type='number' placeholder="0.00" name='price' min="0"
-                               value="0" step="0.01"/>
-                        <label for='price' th:text="#{admin.products.price}"></label>
+                        <select class='validate' name='parentCategory' id='parentCategory'
+                                th:field="*{parentCategory}">
+                            <option th:value="0" th:text="None" selected></option>
+                            <option th:each="category : ${@categoryService.getAll()}" th:value="${category.id}"
+                                    th:text="${category.code + ' - ' + category.name}"></option>
+                        </select>
+                        <label for='parentCategory' th:text="#{admin.categories.parent}"></label>
                     </div>
                 </div>
                 <br/>
                 <div class="center">
                     <div class='row'>
                         <button type='submit' class='col s12 btn btn-large waves-effect main-color'
-                        th:text="#{admin.products.add}"></button>
+                                th:text="#{admin.categories.add}"></button>
                     </div>
                 </div>
                 <span th:utext="${successMessage}"></span>
             </form>
         </div>
     </div>
-    <a th:href="@{/admin/products}" th:text="#{admin.products.back}"></a>
+    <a th:href="@{/admin/categories}" th:text="#{admin.categories.back}"></a>
 </div>

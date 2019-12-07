@@ -3,6 +3,7 @@ package org.jastka4.pwr.idb.service;
 import org.jastka4.pwr.idb.model.User;
 import org.jastka4.pwr.idb.repository.RoleRepository;
 import org.jastka4.pwr.idb.repository.UserRepository;
+import org.jastka4.pwr.idb.service.impl.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;

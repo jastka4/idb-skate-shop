@@ -1,7 +1,7 @@
 package org.jastka4.pwr.idb.controller;
 
 import org.jastka4.pwr.idb.model.User;
-import org.jastka4.pwr.idb.service.UserService;
+import org.jastka4.pwr.idb.service.impl.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;

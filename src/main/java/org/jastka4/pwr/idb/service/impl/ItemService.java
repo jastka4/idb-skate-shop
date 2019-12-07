@@ -1,4 +1,4 @@
-package org.jastka4.pwr.idb.service;
+package org.jastka4.pwr.idb.service.impl;
 
 import org.jastka4.pwr.idb.model.Item;
 import org.jastka4.pwr.idb.repository.ItemRepository;
@@ -7,10 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service()
+@Service
 public class ItemService {
     private ItemRepository itemRepository;
-    private List<Item> items;
 
     @Autowired
     public ItemService(ItemRepository itemRepository) {
@@ -34,5 +33,9 @@ public class ItemService {
 
         itemRepository.save(item);
         return item;
+    }
+
+    public void remove(final long id) {
+        itemRepository.deleteById(id);
     }
 }

@@ -12,7 +12,7 @@ public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "image_id")
-    private int id;
+    private long id;
 
     @Column(name = "name")
     @NotNull(message = "*Name cannot be empty")
