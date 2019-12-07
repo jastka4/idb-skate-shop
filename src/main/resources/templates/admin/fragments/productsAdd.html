@@ -1,0 +1,48 @@
+<div class="center spacing" xmlns:th="http://www.thymeleaf.org">
+    <h5 class="main-color-text spacing" th:text="#{admin.products.add}"></h5>
+    <div class="container">
+        <div class="z-depth-1 grey lighten-4 row container-box">
+
+            <form class="col s12" method="POST" th:action="@{/admin/products/add}" th:object="${item}">
+                <div class='row'>
+                    <div class='input-field col s12'>
+                        <input class='validate' type='text' name='name' id='name' th:field="*{code}"/>
+                        <label for='name' th:text="#{admin.products.code}"></label>
+                    </div>
+                </div>
+                <p class="red-text" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+                <div class='row'>
+                    <div class='input-field col s12'>
+                        <input class='validate' type='text' name='name' id='name' th:field="*{name}"/>
+                        <label for='name' th:text="#{admin.products.name}"></label>
+                    </div>
+                </div>
+                <p class="red-text" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+                <div class='row'>
+                    <div class='input-field col s12'>
+                        <input class='validate' type='text' name='description' id='description'
+                               th:field="*{description}"/>
+                        <label for='description' th:text="#{admin.products.description}"></label>
+                    </div>
+                </div>
+                <p class="red-text" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+                <div class='row'>
+                    <div class='input-field col s12'>
+                        <input id='price' th:field="*{price}" type='number' placeholder="0.00" name='price' min="0"
+                               value="0" step="0.01"/>
+                        <label for='price' th:text="#{admin.products.price}"></label>
+                    </div>
+                </div>
+                <br/>
+                <div class="center">
+                    <div class='row'>
+                        <button type='submit' name='btn_add' class='col s12 btn btn-large waves-effect main-color'
+                        th:text="#{admin.products.add}"></button>
+                    </div>
+                </div>
+                <span th:utext="${successMessage}"></span>
+            </form>
+        </div>
+    </div>
+    <a th:href="@{/admin/products}" th:text="#{admin.products.back}"></a>
+</div>

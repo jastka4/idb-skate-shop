@@ -1,0 +1,40 @@
+<div class="container" xmlns:th="http://www.thymeleaf.org">
+    <h3 th:text="#{admin.products.list}"></h3>
+    <div class="z-depth-1 grey lighten-3 row container-box">
+        <table>
+            <thead>
+            <tr>
+                <th class="center-align" th:text="#{admin.products.id}"></th>
+                <th class="center-align" th:text="#{admin.products.code}"></th>
+                <th class="center-align" th:text="#{admin.products.name}"></th>
+                <th class="center-align" th:text="#{admin.products.description}"></th>
+                <th class="center-align" th:text="#{admin.products.items_in_magazine}"></th>
+                <th class="center-align" th:text="#{admin.products.price}"></th>
+                <th class="center-align" th:text="#{admin.products.remove}"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${products.empty}">
+                <td colspan="6" class="center-align" th:text="#{admin.products.empty}"></td>
+            </tr>
+            <tr th:each="product : ${products}">
+                <td class="center-align"><span th:text="${product.id}"/></td>
+                <td class="center-align"><span th:text="${product.code}"/></td>
+                <td class="center-align"><span th:text="${product.name}"/></td>
+                <td class="center-align"><span th:text="${product.description}"/></td>
+                <td class="center-align"><span th:text="${product.amount}"/></td>
+                <td class="center-align"><span th:text="${product.price}"/></td>
+                <td class="center-align">
+                    <button class="waves-effect waves-teal btn-flat">
+                        <i class="material-icons red-text text-accent-4">delete_forever</i>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col s12 m6"><a class="waves-effect waves-teal btn-flat" th:href="@{/admin/products/add}"><i
+                    class="medium material-icons">playlist_add</i>[[#{admin.products.add}]]</a></div>
+        </div>
+    </div>
+</div>

@@ -3,9 +3,10 @@
 
 <head>
     <title>Admin Panel</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/icons/material-icons.css}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" th:href="@{/css/materialize.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/admin.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
 
     <script th:src="@{/js/materialize.min.js}" defer></script>
     <script th:src="@{/js/admin.js}" defer></script>
@@ -14,6 +15,8 @@
 <body>
 <header th:replace="admin/fragments/header.html :: header"></header>
 <ul th:replace="admin/fragments/sidenav.html :: ul"></ul>
-<main class="main" th:insert="admin/fragments/mainView.html"></main>
+
+<main th:if="${create}" class="main" th:insert="admin/fragments/productsAdd.html"></main>
+<main th:unless="${create}" class="main" th:insert="admin/fragments/productsList.html"></main>
 </body>
 </html>
