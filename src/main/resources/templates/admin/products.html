@@ -17,6 +17,6 @@
 <ul th:replace="admin/fragments/sidenav.html :: ul"></ul>
 
 <main th:if="${create}" class="main" th:insert="admin/fragments/productsAdd.html"></main>
-<main th:unless="${create}" class="main" th:insert="admin/fragments/productsList.html"></main>
+<main th:unless="${create}" class="main" th:insert="admin/fragments/productList.html"></main>
 </body>
 </html>
