@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <title th:text="#{pdp.product.details}"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/icons/material-icons.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/materialize.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/productDisplayPage.css}"/>
+
+    <script th:src="@{/js/materialize.min.js}" defer></script>
+    <script th:src="@{/js/scripts.js}" defer></script>
+
+</head>
+<body>
+<nav th:replace="/fragments/header.html  :: header"></nav>
+
+<main>
+    <div class="container">
+        <div class="row second-nav">
+            <div class="col s12" th:utext="#{footer.privacy_policy.content}">
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="fragments/footer.html  :: footer"></footer>
+</body>
+</html>

@@ -20,4 +20,9 @@ public class HomeController {
         modelAndView.setViewName("productListingPage");
         return modelAndView;
     }
+
+    @GetMapping("/privacyPolicy")
+    public ModelAndView getPrivacyPolicy() {
+        return new ModelAndView("privacyPolicy");
+    }
 }
