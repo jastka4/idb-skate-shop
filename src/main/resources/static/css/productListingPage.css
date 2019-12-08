@@ -161,6 +161,9 @@ input.search-field:focus:hover {
   font-size: 2rem;
 }
 
+.product-card {
+  height: 550px;
+}
 .product-card .card {
   margin: 20px;
   overflow: hidden;
@@ -175,6 +178,11 @@ input.search-field:focus:hover {
   position: absolute;
   top: 0;
   letter-spacing: 0;
+}
+.product-card .card img {
+  background: white;
+  object-fit: contain;
+  height: 250px;
 }
 
 .product-card ul.card-action-buttons {

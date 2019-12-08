@@ -20,17 +20,35 @@
                 <p class="red-text" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
                 <div class='row'>
                     <div class='input-field col s12'>
-                        <input class='validate' type='text' name='description' id='description'
-                               th:field="*{description}"/>
-                        <label for='description' th:text="#{admin.products.description}"></label>
+                        <input class='validate' type='text' name='descriptionEn' id='descriptionEn'
+                               th:field="*{descriptionEn}"/>
+                        <label for='descriptionEn' th:text="#{admin.products.description_en}"></label>
                     </div>
                 </div>
-                <p class="red-text" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+                <p class="red-text" th:if="${#fields.hasErrors('descriptionEn')}" th:errors="*{descriptionEn}"></p>
+                <div class='row'>
+                    <div class='input-field col s12'>
+                        <input class='validate' type='text' name='descriptionPl' id='descriptionPl'
+                               th:field="*{descriptionPl}"/>
+                        <label for='descriptionPl' th:text="#{admin.products.description_pl}"></label>
+                    </div>
+                </div>
+                <p class="red-text" th:if="${#fields.hasErrors('descriptionPl')}" th:errors="*{descriptionPl}">
                 <div class='row'>
                     <div class='input-field col s12'>
                         <input id='price' th:field="*{price}" type='number' placeholder="0.00" name='price' min="0"
                                value="0" step="0.01"/>
                         <label for='price' th:text="#{admin.products.price}"></label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12'>
+                        <select class='validate' name='category' id='category'
+                                th:field="*{category}">
+                            <option th:each="category : ${@categoryService.getAll()}" th:value="${category.id}"
+                                    th:text="${category.code + ' - ' + category.name}"></option>
+                        </select>
+                        <label for='category' th:text="#{admin.products.category}"></label>
                     </div>
                 </div>
                 <br/>

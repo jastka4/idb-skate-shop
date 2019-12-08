@@ -9,7 +9,9 @@ for (let i = 0; i < sideNavs.length; i++) {
 }
 
 const close = document.getElementById("close");
-close.addEventListener('click', function () {
-    let note = document.getElementById("note");
-    note.classList.add("collapsed");
-}, false);
+if (close != null) {
+    close.addEventListener('click', function () {
+        let note = document.getElementById("note");
+        note.classList.add("collapsed");
+    }, false);
+}

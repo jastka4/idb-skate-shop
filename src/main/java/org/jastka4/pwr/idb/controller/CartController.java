@@ -38,8 +38,7 @@ public class CartController {
     private MessagesUtil messagesUtil;
 
     @PostMapping(params = {"id"})
-    public String addToCart(@RequestParam(value = "id") int itemId, final RedirectAttributes redirectAttributes,
-                            final HttpServletRequest request) {
+    public String addToCart(@RequestParam(value = "id") int itemId, final RedirectAttributes redirectAttributes) {
         final Item item = itemService.findItemById(itemId);
         final User user = userService.findUserByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
         if (Objects.nonNull(user)) {
@@ -60,7 +59,6 @@ public class CartController {
                 cartService.saveCart(cart);
             } else {
                 redirectAttributes.addFlashAttribute("msg", messagesUtil.get("pdp.product.add_to_cart.no_stock"));
-                System.out.println("--- Brak towaru! ---");
                 return "redirect:/product?id=" + itemId;
             }
 

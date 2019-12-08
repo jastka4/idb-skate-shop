@@ -21,8 +21,8 @@
         <div class="col s12 m12 l9">
             <h4 th:text="#{plp.products_list}"></h4>
             <div id="card-container" class="row">
-                <div th:each="item : ${items}">
-                    <div th:replace="fragments/productCard.html :: productCard(id=${item.id})"></div>
+                <div class="col s12 m6 l4 product-card" th:each="item : ${items}">
+                    <div th:replace="fragments/productCard.html :: productCard(product=${item})"></div>
                 </div>
             </div>
         </div>

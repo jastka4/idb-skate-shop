@@ -26,8 +26,11 @@ public class Item {
     @NotEmpty(message = "*Name cannot be empty")
     private String name;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "description_pl")
+    private String descriptionPl;
+
+    @Column(name = "description_en")
+    private String descriptionEn;
 
     @Column(name = "amount")
     private int amount;

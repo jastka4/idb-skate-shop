@@ -28,8 +28,20 @@
             <div class="card blue white-text">
                 <div class="card-content valign-wrapper">
                     <div class="card-text">
+                        <p th:text="#{admin.main.categories}"></p>
+                        <h5 th:text="${categoriesCount}"></h5>
+                    </div>
+                    <div class="card-icon"><i class="material-icons medium valign">receipt</i></div>
+                </div>
+                <div class="card-action"><a th:href="@{/admin/categories}" th:text="#{admin.main.show_list}"></a></div>
+            </div>
+        </div>
+        <div class="col s12 m3">
+            <div class="card blue white-text">
+                <div class="card-content valign-wrapper">
+                    <div class="card-text">
                         <p th:text="#{admin.main.orders}"></p>
-                        <h5 th:text="${ordersCount}">000</h5>
+                        <h5 th:text="${ordersCount}"></h5>
                     </div>
                     <div class="card-icon"><i class="material-icons medium valign">receipt</i></div>
                 </div>
