@@ -50,6 +50,10 @@ public class CartService {
     }
 
     public BigDecimal getShipping(final Cart cart) {
-        return SHIPPING;
+        if (cart.getValue().equals(BigDecimal.ZERO)) {
+            return BigDecimal.ZERO;
+        } else {
+            return SHIPPING;
+        }
     }
 }

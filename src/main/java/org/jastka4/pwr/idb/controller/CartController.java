@@ -42,7 +42,8 @@ public class CartController {
     public ModelAndView getCart() {
         final User user = userService.findUserByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
         final ModelAndView modelAndView = new ModelAndView("cart");
-        return modelAndView.addObject("cart", user.getCart());
+        final Cart cart = Optional.ofNullable(user.getCart()).orElse(new Cart());
+        return modelAndView.addObject("cart", cart);
     }
 
     @PostMapping(params = {"id"})

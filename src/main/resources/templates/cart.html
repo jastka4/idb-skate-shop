@@ -23,6 +23,7 @@
             </header>
             <div class="container">
                 <section id="cart">
+                    <h3 class="center" th:if="${cart.items.empty}">No products have been added to the cart.</h3>
                     <article class="product" th:each="product : ${cart.items}">
                         <header>
                             <a class="remove">
@@ -62,7 +63,8 @@
                     <div class="right">
                         <h1 class="total">Total: $<span th:text="${@cartService.getTotalPrice(cart)}"></span></h1>
                         <form method="post" class="center">
-                            <button class="add-to-cart main-color" name="id" type="submit">Checkout</button>
+                            <button class="add-to-cart main-color" name="id" type="button"
+                                    th:classappend="${cart.items.empty ? 'disabled' : ''}">Checkout</button>
                         </form>
                     </div>
                 </div>
