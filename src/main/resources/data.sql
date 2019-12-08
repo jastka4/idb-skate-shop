@@ -35,7 +35,14 @@ VALUES ('Image 1', 'jpg', 'Image 1 description', 1),
        ('Image 3', 'jpg', 'Image 3 description', 2),
        ('Image 4', 'jpg', 'Image 4 description', 2);
 
+INSERT INTO `categories`
+    (`code`, `name`, `parent_id`)
+VALUES ('A1', 'Skateboards', null),
+       ('A1A1', 'Cruising Skateboards', 1),
+       ('A1A1A1', 'Longboard', 2),
+       ('A1A1B1', 'Mini Cruiser', 2);
+
 INSERT INTO `items`
-    (`code`, `amount`, `name`, `description`, `price`)
-VALUES ('ABCD10', 10, 'Jakiś przedmiot', 'Opis przedmiotu 1. Przedmiot 1 jest fajny.', 1.22),
-       ('ABCD20', 12, 'Jakiś inny przedmiot', 'Opis przedmiotu 2. Przedmiot 2 też jest fajny.', 2.22);
+(`code`, `amount`, `name`, `description`, `price`, `category_id`)
+VALUES ('ABCD10', 10, 'Jakiś przedmiot', 'Opis przedmiotu 1. Przedmiot 1 jest fajny.', 1.22, 3),
+       ('ABCD20', 12, 'Jakiś inny przedmiot', 'Opis przedmiotu 2. Przedmiot 2 też jest fajny.', 2.22, 4);

@@ -16,7 +16,7 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "item_id")
-    private int id;
+    private long id;
 
     @Column(name = "code")
     @NotEmpty(message = "*Code cannot be empty")
@@ -35,6 +35,10 @@ public class Item {
     @Column(name = "price")
     @NotNull(message = "*Price cannot be empty")
     private BigDecimal price;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     @OneToMany(mappedBy = "productId")
     private List<Image> images;
