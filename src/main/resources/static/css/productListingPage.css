@@ -128,18 +128,79 @@ input.search-field:focus:hover {
 #note.collapsed {
   transform: scaleY(0);
 }
-#note #close {
+#note .close {
   cursor: pointer;
   color: white;
   float: right;
   margin-right: 20px;
 }
-#note #close i {
+#note .close i {
   vertical-align: middle;
 }
 @media screen and (min-width: 992px) {
   #note {
     top: 64px;
+  }
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #f6f6f6;
+  text-rendering: optimizeLegibility;
+}
+
+.main-color {
+  background: #202124;
+}
+
+.main-color-text {
+  color: #202124;
+}
+
+.cookie-alert {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 10px;
+  background: #202124;
+  color: white;
+  padding: 10px 15px;
+  width: 280px;
+  z-index: 100;
+}
+.cookie-alert.collapsed {
+  display: none;
+}
+.cookie-alert a.close {
+  display: block;
+  text-align: center;
+  padding: 5px 10px;
+  margin: 8px auto 0 auto;
+  border-radius: 10px;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  transition: all .3s ease;
+  text-decoration: none;
+}
+.cookie-alert a.close:hover {
+  cursor: pointer;
+  background: white;
+  color: #202124;
+}
+@media only screen and (max-width: 480px) {
+  .cookie-alert {
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 700px;
+    padding: 10px 30px;
   }
 }
 

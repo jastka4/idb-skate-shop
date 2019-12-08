@@ -1,0 +1,45 @@
+@import "main";
+
+.cookie-alert {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 10px;
+  background: $base-color;
+  color: $base-text-color;
+  padding: 10px 15px;
+  width: 280px;
+  z-index: 100;
+
+  &.collapsed {
+    display: none;
+  }
+
+  a.close {
+    display: block;
+    text-align: center;
+    padding: 5px 10px;
+    margin: 8px auto 0 auto;
+    border-radius: 10px;
+    background: transparent;
+    border: 2px solid $base-text-color;
+    color: $base-text-color;
+    transition: all .3s ease;
+    text-decoration: none;
+
+    &:hover {
+      cursor: pointer;
+      background: $base-text-color;
+      color: $base-color;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 700px;
+    padding: 10px 30px;
+  }
+}
