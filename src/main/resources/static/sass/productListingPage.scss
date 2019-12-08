@@ -31,12 +31,15 @@
       width: 70px;
       height: 70px;
       font-weight: 600;
-      font-size: 1.45rem;
       line-height: 70px;
       margin: 10px;
       position: absolute;
       top: 0;
       letter-spacing: 0;
+
+      &:hover {
+        background: $base-color;
+      }
     }
 
     img {
