@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/productDisplayPage.css}"/>
 
     <script th:src="@{/js/materialize.min.js}" defer></script>
-    <script th:src="@{/js/productListingPage.js}" defer></script>
+    <script th:src="@{/js/scripst.js}" defer></script>
 
 </head>
 <body>
@@ -25,10 +25,6 @@
                     <li class="breadcrumb-item active">Bonsai</li>
                 </ol>
             </div>
-        </div>
-        <div class="row s12">
-            <span th:if="${msg == 'succes'}" class="large" th:text="#{pdp.message_success}">s</span>
-            <span th:if="${msg == 'empty'}" class="large" th:text="#{pdp.message_empty}">e</span>
         </div>
         <div class="row product">
             <div class="col s12 m7">

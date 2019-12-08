@@ -11,7 +11,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
@@ -71,7 +74,8 @@ public class AdminController {
     }
 
     @PostMapping(value = "/products/add")
-    public @ResponseBody ModelAndView addProduct(final Item item, final BindingResult bindingResult) {
+    public @ResponseBody
+    ModelAndView addProduct(final Item item, final BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
         if (itemService.findItemByName(item.getName()) != null) {
             bindingResult.rejectValue("name", "error.item", "Przedmiot o takiej nazwie już istnieje!");
