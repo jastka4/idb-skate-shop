@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/icons/material-icons.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/materialize.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/admin.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
+
+    <script th:src="@{/js/materialize.min.js}" defer></script>
+    <script th:src="@{/js/admin.js}" defer></script>
+</head>
+
+<body>
+<header th:replace="admin/fragments/header.html :: header"></header>
+<ul th:replace="admin/fragments/sidenav.html :: ul"></ul>
+
+<main class="main" th:insert="admin/fragments/cartsList.html"></main>
+</body>
+</html>

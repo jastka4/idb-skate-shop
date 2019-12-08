@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.List;
 
 @Service
 public class CartService {
@@ -21,13 +22,21 @@ public class CartService {
         this.cartRepository = cartRepository;
     }
 
-    public Cart findById(int id) {
+    public List<Cart> findAll() {
+        return cartRepository.findAll();
+    }
+
+    public Cart findById(final int id) {
         return cartRepository.findById(id);
     }
 
-    public Cart saveCart(Cart cart) {
+    public Cart saveCart(final Cart cart) {
         cartRepository.save(cart);
         return cart;
+    }
+
+    public void remove(final long id) {
+        cartRepository.deleteById(id);
     }
 
     public BigDecimal getTax(final Cart cart) {
