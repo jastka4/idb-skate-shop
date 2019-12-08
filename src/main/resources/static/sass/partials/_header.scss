@@ -34,6 +34,23 @@ nav {
   }
 }
 
+.sidenav {
+  .brand-logo {
+    height: 56px;
+    line-height: 56px;
+    margin-bottom: 10px;
+
+    img {
+      vertical-align: middle;
+    }
+
+    @media screen and (min-width: $break-sm-medium) {
+      height: 64px;
+      line-height: 64px;
+    }
+  }
+}
+
 .search-close-icon {
   display: none !important;
   position: absolute;
