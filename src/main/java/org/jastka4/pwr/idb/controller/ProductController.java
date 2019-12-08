@@ -18,7 +18,7 @@ public class ProductController {
     private ItemService itemService;
 
     @GetMapping(params = {"id"})
-    public ModelAndView showProduct(@RequestParam(value = "id") int itemId) {
+    public ModelAndView showProduct(@RequestParam(value = "id") long itemId) {
         ModelAndView modelAndView = new ModelAndView();
         Item item = itemService.findItemById(itemId);
         modelAndView.addObject("product", item);

@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/productDisplayPage.css}"/>
 
     <script th:src="@{/js/materialize.min.js}" defer></script>
-    <script th:src="@{/js/productListingPage.js}" defer></script>
+    <script th:src="@{/js/scripst.js}" defer></script>
 
 </head>
 <body>
@@ -20,7 +20,10 @@
         <div class="row second-nav">
             <div class="col s12">
                 <ol class="breadcrumb-list">
-                    <li class="breadcrumb-item" th:each="category : ${@categoryService.getCategoriesHierarchy(product.category)}"><a href="#" th:text="${category.name}"></a></li>
+                    <li class="breadcrumb-item"
+                        th:each="category : ${@categoryService.getCategoriesHierarchy(product.category)}"><a href="#"
+                                                                                                             th:text="${category.name}"></a>
+                    </li>
                 </ol>
             </div>
         </div>
@@ -43,7 +46,7 @@
                 <h2 th:text="${product.price}"></h2>
                 <p>Items in magazine: <span th:text="${product.amount}"></span></p>
                 <div class="description">
-                    <p th:text="${product.description}"></p>
+                    <p th:text="${@itemService.getDescription(product)}"></p>
                 </div>
 
                 <form method="post" th:action="@{/cart}">
@@ -56,20 +59,12 @@
             <div class="col s12">
                 <h3 th:text="#{pdp.similiar_products}"></h3>
             </div>
-            <div class="col s12 m4">
-                <img src="https://source.unsplash.com/miziNqvJx5M">
-                <h4>Succulent</h4>
-                <p class="price">$19.99</p>
-            </div>
-            <div class="col s12 m4">
-                <img src="https://source.unsplash.com/2y6s0qKdGZg">
-                <h4>Terranium</h4>
-                <p class="price">$19.99</p>
-            </div>
-            <div class="col s12 m4">
-                <img src="https://source.unsplash.com/6Rs76hNbIWE">
-                <h4>Cactus</h4>
-                <p class="price">$19.99</p>
+            <div class="col s12 m4" th:each="recommended : ${@itemService.getRecommendedItems(product)}">
+                <a th:href="@{/product(id=${recommended.id})}">
+                    <img th:src="${recommended.images[0].getUrl()}" th:alt="${recommended.images[0].alternative}">
+                    <h4 th:text="${recommended.name}"></h4>
+                    <p class="price" th:text="${recommended.price}"></p>
+                </a>
             </div>
         </div>
     </div>

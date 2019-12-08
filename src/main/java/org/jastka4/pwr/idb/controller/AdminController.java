@@ -6,7 +6,6 @@ import org.jastka4.pwr.idb.service.ICategoryService;
 import org.jastka4.pwr.idb.service.IOrderService;
 import org.jastka4.pwr.idb.service.impl.ItemService;
 import org.jastka4.pwr.idb.service.impl.UserService;
-import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -41,6 +40,7 @@ public class AdminController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("usersCount", userService.findAll().size());
         modelAndView.addObject("itemsCount", itemService.findAll().size());
+        modelAndView.addObject("categoriesCount", categoryService.getAll().size());
         modelAndView.addObject("ordersCount", orderService.getAll().size());
         modelAndView.setViewName(ADMIN_HOME_PAGE);
         return modelAndView;
@@ -55,7 +55,7 @@ public class AdminController {
     }
 
     @GetMapping(value = "/products")
-    public ModelAndView productsList() {
+    public ModelAndView productList() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("products", itemService.findAll());
         modelAndView.setViewName(ADMIN_PRODUCTS_PAGE);

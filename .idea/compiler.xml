@@ -9,6 +9,9 @@
         <module name="idb" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="idb" target="13" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

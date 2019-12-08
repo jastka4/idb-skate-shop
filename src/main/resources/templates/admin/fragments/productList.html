@@ -8,7 +8,7 @@
                 <th class="center-align" th:text="#{admin.products.code}"></th>
                 <th class="center-align" th:text="#{admin.products.name}"></th>
                 <th class="center-align" th:text="#{admin.products.category}"></th>
-                <th class="center-align" th:text="#{admin.products.description}"></th>
+                <th class="center-align" th:text="#{admin.products.description_pl}"></th>
                 <th class="center-align" th:text="#{admin.products.items_in_magazine}"></th>
                 <th class="center-align" th:text="#{admin.products.price}"></th>
                 <th class="center-align" th:text="#{admin.products.remove}"></th>
@@ -23,7 +23,8 @@
                 <td class="center-align"><span th:text="${product.code}"/></td>
                 <td class="center-align"><span th:text="${product.name}"/></td>
                 <td class="center-align"><span th:text="${product.category.code}"/></td>
-                <td class="center-align"><span th:text="${product.description}"/></td>
+                <td class="center-align"><span th:text="${product.descriptionEn}"/></td>
+                <td class="center-align"><span th:text="${product.descriptionPl}"/></td>
                 <td class="center-align"><span th:text="${product.amount}"/></td>
                 <td class="center-align"><span th:text="${product.price}"/></td>
                 <td class="center-align">

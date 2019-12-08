@@ -19,20 +19,30 @@
   font-size: 2rem;
 }
 
-.product-card .card {
-  margin: 20px;
-  overflow: hidden;
+.product-card {
+  height: 550px;  // temporary fix for the column height problem
 
-  .price {
-    width: 70px;
-    height: 70px;
-    font-weight: 600;
-    font-size: 1.45rem;
-    line-height: 70px;
-    margin: 10px;
-    position: absolute;
-    top: 0;
-    letter-spacing: 0;
+  .card {
+    margin: 20px;
+    overflow: hidden;
+
+    .price {
+      width: 70px;
+      height: 70px;
+      font-weight: 600;
+      font-size: 1.45rem;
+      line-height: 70px;
+      margin: 10px;
+      position: absolute;
+      top: 0;
+      letter-spacing: 0;
+    }
+
+    img {
+      background: white;
+      object-fit: contain;
+      height: 250px;
+    }
   }
 }
 
