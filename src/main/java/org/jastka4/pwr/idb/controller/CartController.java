@@ -9,13 +9,14 @@ import org.jastka4.pwr.idb.service.impl.UserService;
 import org.jastka4.pwr.idb.utils.MessagesUtil;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -36,6 +37,14 @@ public class CartController {
 
     @Resource
     private MessagesUtil messagesUtil;
+
+    @GetMapping
+    public ModelAndView getCart() {
+        final User user = userService.findUserByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
+        final ModelAndView modelAndView = new ModelAndView("cart");
+        final Cart cart = Optional.ofNullable(user.getCart()).orElse(new Cart());
+        return modelAndView.addObject("cart", cart);
+    }
 
     @PostMapping(params = {"id"})
     public String addToCart(@RequestParam(value = "id") int itemId, final RedirectAttributes redirectAttributes) {

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <title>Skateboarder | Cart</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/icons/material-icons.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/materialize.min.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{css/cart.css}"/>
+
+    <script th:src="@{js/materialize.min.js}" defer></script>
+    <script th:src="@{js/scripst.js}" defer></script>
+</head>
+<body>
+<nav th:replace="fragments/header.html :: header"></nav>
+
+<div id="container">
+        <div class="col s12">
+            <header id="site-header">
+                <div class="container">
+                    <h1>Shopping cart</h1>
+                </div>
+            </header>
+            <div class="container">
+                <section id="cart">
+                    <h3 class="center" th:if="${cart.items.empty}">No products have been added to the cart.</h3>
+                    <article class="product" th:each="product : ${cart.items}">
+                        <header>
+                            <a class="remove">
+                                <img th:src="${product.images[0].getUrl()}"
+                                     th:alt="${product.images[0].alternative}">
+                                <h3>Remove product</h3>
+                            </a>
+                        </header>
+                        <div class="content">
+                            <h1 th:text="${product.name}"></h1>
+                            <p th:text="${@itemService.getDescription(product)}"></p>
+                        </div>
+                        <footer class="content">
+                            <span class="qt-minus">-</span>
+                            <span class="qt">1</span>
+                            <span class="qt-plus">+</span>
+
+<!--                            <h2 class="full-price">-->
+<!--                                69.98-->
+<!--                            </h2>-->
+
+                            <h2 class="price">$<span th:text="${product.price}"></span></h2>
+                        </footer>
+                    </article>
+                </section>
+
+            </div>
+            <div id="checkout-footer">
+                <div class="container clearfix">
+
+                    <div class="left">
+                        <h2 class="subtotal">Subtotal: $<span th:text="${cart.value.doubleValue()}"></span></h2>
+                        <h3 class="tax">Tax (23%): $<span th:text="${@cartService.getTax(cart)}"></span></h3>
+                        <h3 class="shipping">Shipping: $<span th:text="${@cartService.getShipping(cart)}"></span></h3>
+                    </div>
+
+                    <div class="right">
+                        <h1 class="total">Total: $<span th:text="${@cartService.getTotalPrice(cart)}"></span></h1>
+                        <form method="post" class="center">
+                            <button class="add-to-cart main-color" name="id" type="button"
+                                    th:classappend="${cart.items.empty ? 'disabled' : ''}">Checkout</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<footer th:replace="fragments/footer.html  :: footer"></footer>
+</body>
+</html>

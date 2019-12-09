@@ -59,7 +59,7 @@ INSERT INTO `items`
 (`code`, `amount`, `name`, `description_pl`, `description_en`, `price`, `category_id`)
 VALUES ('8506101', 6, 'Longboard FREE 520 Japan OXELO',
         'Deska o kształcie "Drop", który pozwala obniżyć środek ciężkości, aby zapewnić maksymalną stabilność, nawet przy dużych prędkościach. Bądź szybki jak wiatr! Lub prawie... ',
-        'Drop-shaped board that allows you to lower the center of gravity to ensure maximum stability, even at high speeds. Be fast like the wind! Or almost ...',
+        'Drop-shaped board that allows you to lower the center of gravity to ensure maximum stability, even at high speeds. Be fast like the wind! Or almost...',
         116.38, 15),
        ('8214511', 21, 'Miniboard Penny Nickel Pastels',
         'Nickel to dłuższy model typowej "rybki" czyli tzw. cruzera. Plastikowe deski jak ta zyskały popularność w połowie lat 70, deskoroloki odlewane z plastiku były w tym czasie najbardziej stylowymi i odjazdowymi deskorolkami. Zwrotna i poręczna deska była świetnym sposobem przemieszczania się po mieście.',

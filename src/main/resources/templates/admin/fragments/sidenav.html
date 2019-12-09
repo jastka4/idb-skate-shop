@@ -8,13 +8,19 @@
         </div>
     </li>
     <li th:classappend="${#httpServletRequest.getRequestURI().contains('home')} ? active : ''"><a
-            th:href="@{/admin/home}"><i class="material-icons">dashboard</i>[[#{admin.sidenav.dashboard}]]</a></li>
+            th:href="@{/admin/home}"><i class="material-icons">dashboard</i>[[#{admin.sidenav.dashboard}]]</a>
+    </li>
     <li th:classappend="${#httpServletRequest.getRequestURI().contains('customers')} ? active : ''"><a
-            th:href="@{/admin/customers}"><i class="material-icons">person</i>[[#{admin.sidenav.users}]]</a></li>
+            th:href="@{/admin/customers}"><i class="material-icons">person</i>[[#{admin.sidenav.users}]]</a>
+    </li>
     <li th:classappend="${#httpServletRequest.getRequestURI().contains('products')} ? active : ''"><a
-            th:href="@{/admin/products}"><i class="material-icons">local_offer</i>[[#{admin.sidenav.products}]]</a></li>
+            th:href="@{/admin/products}"><i class="material-icons">local_offer</i>[[#{admin.sidenav.products}]]</a>
+    </li>
     <li th:classappend="${#httpServletRequest.getRequestURI().contains('categories')} ? active : ''"><a
             th:href="@{/admin/categories}"><i class="material-icons">view_list</i>[[#{admin.sidenav.categories}]]</a>
+    </li>
+    <li th:classappend="${#httpServletRequest.getRequestURI().contains('carts')} ? active : ''"><a
+            th:href="@{/admin/carts}"><i class="material-icons">shopping_cart</i>[[#{admin.sidenav.carts}]]</a>
     </li>
     <li th:classappend="${#httpServletRequest.getRequestURI().contains('orders')} ? active : ''"><a
             th:href="@{/admin/orders}"><i class="material-icons">receipt</i>[[#{admin.sidenav.orders}]]</a></li>

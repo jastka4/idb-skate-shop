@@ -1,0 +1,36 @@
+<div class="container center" xmlns:th="http://www.thymeleaf.org">
+    <h3 th:text="#{admin.carts.list}"></h3>
+    <div class="z-depth-1 grey lighten-3 row container-box">
+        <table>
+            <thead>
+            <tr>
+                <th class="center-align" th:text="#{admin.carts.id}"></th>
+                <th class="center-align" th:text="#{admin.carts.user}"></th>
+                <th class="center-align" th:text="#{admin.carts.date}"></th>
+                <th class="center-align" th:text="#{admin.carts.value}"></th>
+                <th class="center-align" th:text="#{admin.carts.items}"></th>
+                <th class="center-align" th:text="#{admin.carts.remove}"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${carts.empty}">
+                <td colspan="6" class="center-align" th:text="#{admin.carts.empty}"></td>
+            </tr>
+            <tr th:each="cart : ${carts}">
+                <td class="center-align"><span th:text="${cart.id}"></span></td>
+                <td class="center-align"><span th:text="${cart.user.email}"></span></td>
+                <td class="center-align"><span th:text="${cart.date}"></span></td>
+                <td class="center-align"><span th:text="${cart.value}"></span></td>
+                <td class="center-align"><p th:each="item : ${cart.items}" th:text="${item.code + ' - ' + item.name}"></p></td>
+                <td class="center-align">
+                    <form method="post" th:action="@{/admin/carts(id=${cart.id})}">
+                        <button type="submit" class="waves-effect waves-teal btn-flat">
+                            <i class="material-icons red-text text-accent-4">delete_forever</i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -30,4 +30,8 @@ public class Cart {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "item_carts", joinColumns = @JoinColumn(name = "cart_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
     private List<Item> items = new ArrayList<>();
+
+    public Cart() {
+        value = BigDecimal.valueOf(0);
+    }
 }
